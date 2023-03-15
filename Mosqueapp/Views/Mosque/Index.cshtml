@@ -1,0 +1,74 @@
+﻿@model IEnumerable<Mosqueapp.Models.mosquevm>
+
+@{
+    ViewBag.Title = "Mosque List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    WebGrid webGrid = new WebGrid(Model);
+}
+
+<style type="text/css">
+    body {
+        font-family: Arial;
+        font-size: 10pt;
+    }
+
+    .Grid {
+        border: 1px solid #ccc;
+        border-collapse: collapse;
+    }
+
+        .Grid th {
+            background-color: #F7F7F7;
+            font-weight: bold;
+        }
+
+        .Grid th, .Grid td {
+            padding: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .Grid img {
+            height: 150px;
+            width: 150px;
+            cursor: pointer;
+        }
+
+        .Grid, .Grid table td {
+            border: 0px solid #ccc;
+        }
+
+            .Grid th a, .Grid th a:visited {
+                color: #333;
+            }
+</style>
+<h4>Mosque List</h4>
+
+@webGrid.GetHtml(
+    tableStyle: "table table-bordered table-striped mr",
+    rowStyle: "gridrow",
+    alternatingRowStyle: "gridalt",
+        htmlAttributes: new { @id = "WebGrid", @class = "Grid" },
+        columns: webGrid.Columns(
+                 webGrid.Column("Masjidname", "Mosquename"),
+                 webGrid.Column("Cityname", "City"),
+                 webGrid.Column("Designlayout", "Design Layout"),
+                 webGrid.Column("Designname", "Design Name"),
+                 webGrid.Column("Language", "Language"),
+                 webGrid.Column("Imagepath", "Image",
+                 format: @<text>
+                    <img alt="@item.Masjidname" width="100" height="75"
+                         src="@Url.Content(item.Imagepath)" />
+                </text>),
+webGrid.Column(columnName: "", format: (item) => Html.ActionLink("Edit Prayertimes", "EditPrayertime", "Mosque",
+new { id = item.Masjidid }, null)),
+webGrid.Column(columnName: "", format: (item) => Html.ActionLink("Edit", "Edit", "Mosque",
+new { id = item.Masjidid }, null)),
+webGrid.Column(columnName: "", format: (item) => Html.ActionLink("Delete", "Delete", "Mosque",
+new { id = item.Masjidid }, null))
+
+))
+
+
+
+

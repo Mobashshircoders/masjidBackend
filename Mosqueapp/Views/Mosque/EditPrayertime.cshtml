@@ -1,0 +1,147 @@
+﻿@model Mosqueapp.Models.Mosquedata
+@{
+    ViewBag.Title = "EditPrayertime";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h4>Edit Prayertime</h4>
+
+@using (Html.BeginForm())
+{
+
+    @Html.HiddenFor(x => x.Masjidid)
+
+    <div class="row" style="height:10px;">
+
+    </div>
+    
+    <div class="row">
+        <div class="col-md-4">
+            <label style="color:black; font-size:16px;">Fajr timing </label>
+        </div>
+        <div class="col-md-4">
+            @Html.LabelFor(model => model.Fajrazaan, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.EditorFor(model => model.Fajrazaan, new { htmlAttributes = new { @class = "form-control", id = "txtfajrazaan" } })
+        </div>
+        
+        <div class="col-md-4">
+            @Html.LabelFor(model => model.Fajrnamaaz, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.EditorFor(model => model.Fajrnamaaz, new { htmlAttributes = new { @class = "form-control", id = "txtfajrnamaaz" } })
+        </div>
+
+    </div>
+    
+    <div class="row">
+        <div class="col-md-4">
+            <label style="color:black; font-size:16px;">Dhuhr timing </label>
+        </div>
+        <div class="col-md-4">
+            @Html.LabelFor(model => model.Dhuhrazaan, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.EditorFor(model => model.Dhuhrazaan, new { htmlAttributes = new { @class = "form-control", id = "txtdhuhrazaan" } })
+        </div>
+        
+        <div class="col-md-4">
+            @Html.LabelFor(model => model.Dhuhrnamaaz, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.EditorFor(model => model.Dhuhrnamaaz, new { htmlAttributes = new { @class = "form-control", id = "txtdhuhrnamaaz" } })
+        </div>
+    </div>
+
+   
+    <div class="row">
+        <div class="col-md-4">
+            <label style="color:black; font-size:16px;">Asr timing </label>
+        </div>
+        <div class="col-md-4">
+            @Html.LabelFor(model => model.Asrazaan, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.EditorFor(model => model.Asrazaan, new { htmlAttributes = new { @class = "form-control", id = "txtasrazaan" } })
+        </div>
+        
+        <div class="col-md-4">
+            @Html.LabelFor(model => model.Asrnamaaz, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.EditorFor(model => model.Asrnamaaz, new { htmlAttributes = new { @class = "form-control", id = "txtasrnamaaz" } })
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-md-4">
+            <label style="color:black; font-size:16px;">Maghrib timing </label>
+        </div>
+        <div class="col-md-4">
+            @Html.LabelFor(model => model.Maghribazaan, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.EditorFor(model => model.Maghribazaan, new { htmlAttributes = new { @class = "form-control", id = "txtmaghribazaan" } })
+        </div>
+       
+        <div class="col-md-4">
+            @Html.LabelFor(model => model.Maghribnamaaz, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.EditorFor(model => model.Maghribnamaaz, new { htmlAttributes = new { @class = "form-control", id = "txtmaghribnamaaz" } })
+        </div>
+    </div>
+  
+    <div class="row">
+        <div class="col-md-4">
+            <label style="color:black; font-size:16px;">Isha timing </label>
+        </div>
+        <div class="col-md-4">
+            @Html.LabelFor(model => model.Ishaazaan, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.EditorFor(model => model.Ishaazaan, new { htmlAttributes = new { @class = "form-control", id = "txtishaazaan" } })
+        </div>
+       
+        <div class="col-md-4">
+            @Html.LabelFor(model => model.Ishanamaaz, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.EditorFor(model => model.Ishanamaaz, new { htmlAttributes = new { @class = "form-control", id = "txtishanamaaz" } })
+        </div>
+    </div>
+    
+
+    <div class="row">
+        <div class="col-md-4">
+            <label style="color:black; font-size:16px;">Jumua and Shuruq</label>
+        </div>
+        <div class="col-md-4">
+            @Html.LabelFor(model => model.AlJumuanamaaz, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.EditorFor(model => model.AlJumuanamaaz, new { htmlAttributes = new { @class = "form-control", id = "txtjumanamaaz" } })
+        </div>
+        
+        <div class="col-md-4">
+            @Html.LabelFor(model => model.Shuruq, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.EditorFor(model => model.Shuruq, new { htmlAttributes = new { @class = "form-control", id = "txtshuruqtime" } })
+        </div>
+    </div>
+
+    <div class="row" style="height:30px;">
+
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-5"></div>
+        <div class="col-md-2">
+            <input type="submit" value="Save Prayertime" class="btn btn-primary" />
+        </div>
+        <div class="col-md-5"></div>
+    </div>
+
+
+
+}
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#txtfajrazaan').timepicker();
+        $('#txtfajrnamaaz').timepicker();
+        $('#txtdhuhrazaan').timepicker();
+        $('#txtdhuhrnamaaz').timepicker();
+        $('#txtasrazaan').timepicker();
+        $('#txtasrnamaaz').timepicker();
+        $('#txtmaghribazaan').timepicker();
+        $('#txtmaghribnamaaz').timepicker();
+        $('#txtishaazaan').timepicker();
+        $('#txtishanamaaz').timepicker();
+        $('#txtjumanamaaz').timepicker();
+        $('#txtshuruqtime').timepicker();
+
+
+    });
+</script>
+

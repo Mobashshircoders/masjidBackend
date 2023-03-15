@@ -1,0 +1,57 @@
+﻿@model IEnumerable<Mosqueapp.Models.LanguageInput>
+
+@{
+    ViewBag.Title = "Language List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    WebGrid webGrid = new WebGrid(Model);
+}
+
+<style type="text/css">
+    body {
+        font-family: Arial;
+        font-size: 10pt;
+    }
+
+    .Grid {
+        border: 1px solid #ccc;
+        border-collapse: collapse;
+    }
+
+        .Grid th {
+            background-color: #F7F7F7;
+            font-weight: bold;
+        }
+
+        .Grid th, .Grid td {
+            padding: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .Grid, .Grid table td {
+            border: 0px solid #ccc;
+        }
+
+            .Grid th a, .Grid th a:visited {
+                color: #333;
+            }
+</style>
+<h4>Language List</h4>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+@webGrid.GetHtml(
+    tableStyle: "table table-bordered table-striped mr",
+    rowStyle: "gridrow",
+    alternatingRowStyle: "gridalt",
+        htmlAttributes: new { @id = "WebGrid", @class = "Grid" },
+        columns: webGrid.Columns(
+                 webGrid.Column("Language", "Language"),
+                 webGrid.Column(columnName: "", format: (item) => Html.ActionLink("Edit", "Edit", "LanguageInputs",
+new { id = item.LanguageInputId }, null)),
+webGrid.Column(columnName: "", format: (item) => Html.ActionLink("Delete", "Delete", "LanguageInputs",
+new { id = item.LanguageInputId }, null))
+
+))
+

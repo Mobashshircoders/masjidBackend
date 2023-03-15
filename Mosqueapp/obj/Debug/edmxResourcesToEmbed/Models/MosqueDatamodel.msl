@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="mosqueappModelStoreContainer" CdmEntityContainer="mosqueappEntities">
+    <EntitySetMapping Name="Hadiths">
+      <EntityTypeMapping TypeName="mosqueappModel.Hadith">
+        <MappingFragment StoreEntitySet="Hadith">
+          <ScalarProperty Name="Hadithid" ColumnName="Hadithid" />
+          <ScalarProperty Name="Hadith1" ColumnName="Hadith" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Loginusers">
+      <EntityTypeMapping TypeName="mosqueappModel.Loginuser">
+        <MappingFragment StoreEntitySet="Loginuser">
+          <ScalarProperty Name="Loginuserid" ColumnName="Loginuserid" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
+          <ScalarProperty Name="IsAdmin" ColumnName="IsAdmin" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MosqueLinks">
+      <EntityTypeMapping TypeName="mosqueappModel.MosqueLink">
+        <MappingFragment StoreEntitySet="MosqueLink">
+          <ScalarProperty Name="MosqueLinkid" ColumnName="MosqueLinkid" />
+          <ScalarProperty Name="Hadithid" ColumnName="Hadithid" />
+          <ScalarProperty Name="Mosqueid" ColumnName="Mosqueid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Prayertimes">
+      <EntityTypeMapping TypeName="mosqueappModel.Prayertime">
+        <MappingFragment StoreEntitySet="Prayertime">
+          <ScalarProperty Name="Prayertimeid" ColumnName="Prayertimeid" />
+          <ScalarProperty Name="Fajr" ColumnName="Fajr" />
+          <ScalarProperty Name="Fajrnamaaz" ColumnName="Fajrnamaaz" />
+          <ScalarProperty Name="Fajrazaan" ColumnName="Fajrazaan" />
+          <ScalarProperty Name="Shuruq" ColumnName="Shuruq" />
+          <ScalarProperty Name="Dhuhr" ColumnName="Dhuhr" />
+          <ScalarProperty Name="Dhuhrazaan" ColumnName="Dhuhrazaan" />
+          <ScalarProperty Name="Dhuhrnamaaz" ColumnName="Dhuhrnamaaz" />
+          <ScalarProperty Name="Asr" ColumnName="Asr" />
+          <ScalarProperty Name="Asrazaan" ColumnName="Asrazaan" />
+          <ScalarProperty Name="Asrnamaaz" ColumnName="Asrnamaaz" />
+          <ScalarProperty Name="Maghrib" ColumnName="Maghrib" />
+          <ScalarProperty Name="Maghribazaan" ColumnName="Maghribazaan" />
+          <ScalarProperty Name="Maghribnamaaz" ColumnName="Maghribnamaaz" />
+          <ScalarProperty Name="Isha" ColumnName="Isha" />
+          <ScalarProperty Name="Ishaazaan" ColumnName="Ishaazaan" />
+          <ScalarProperty Name="Ishanamaaz" ColumnName="Ishanamaaz" />
+          <ScalarProperty Name="AlJumuanamaaz" ColumnName="AlJumuanamaaz" />
+          <ScalarProperty Name="AlJumuaazaan" ColumnName="AlJumuaazaan" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Countrydatas">
+      <EntityTypeMapping TypeName="mosqueappModel.Countrydata">
+        <MappingFragment StoreEntitySet="Countrydata">
+          <ScalarProperty Name="Countryname" ColumnName="Countryname" />
+          <ScalarProperty Name="Countrycode" ColumnName="Countrycode" />
+          <ScalarProperty Name="Countrydataid" ColumnName="Countrydataid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Worldcities">
+      <EntityTypeMapping TypeName="mosqueappModel.Worldcity">
+        <MappingFragment StoreEntitySet="Worldcity">
+          <ScalarProperty Name="countryiso" ColumnName="countryiso" />
+          <ScalarProperty Name="Countrycode" ColumnName="Countrycode" />
+          <ScalarProperty Name="Countryname" ColumnName="Countryname" />
+          <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+          <ScalarProperty Name="Latitute" ColumnName="Latitute" />
+          <ScalarProperty Name="City_ascii" ColumnName="City_ascii" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Worldcitylistid" ColumnName="Worldcitylistid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LanguageInputs">
+      <EntityTypeMapping TypeName="mosqueappModel.LanguageInput">
+        <MappingFragment StoreEntitySet="LanguageInput">
+          <ScalarProperty Name="Language" ColumnName="Language" />
+          <ScalarProperty Name="LanguageInputId" ColumnName="LanguageInputId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Masjids">
+      <EntityTypeMapping TypeName="mosqueappModel.Masjid">
+        <MappingFragment StoreEntitySet="Masjid">
+          <ScalarProperty Name="IsHorizontal" ColumnName="IsHorizontal" />
+          <ScalarProperty Name="Logo" ColumnName="Logo" />
+          <ScalarProperty Name="Languageid" ColumnName="Languageid" />
+          <ScalarProperty Name="Prayertimeid" ColumnName="Prayertimeid" />
+          <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+          <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+          <ScalarProperty Name="Cityname" ColumnName="Cityname" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="Designname" ColumnName="Designname" />
+          <ScalarProperty Name="Masjidname" ColumnName="Masjidname" />
+          <ScalarProperty Name="Masjidid" ColumnName="Masjidid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

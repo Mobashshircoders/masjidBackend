@@ -1,0 +1,447 @@
+﻿@model Mosqueapp.Models.Masjid
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h4>Edit Mosque Data</h4>
+
+
+@using (Html.BeginForm())
+{
+
+    @Html.HiddenFor(x => x.Designname, new { id = "designname", name = "designname" })
+    @Html.HiddenFor(x => x.Masjidid)
+    <div class="row">
+        <div class="col-md-6">
+            @Html.EditorFor(model => model.Masjidname, new { htmlAttributes = new { @class = "form-control", placeholder = "Enter Masjid Name" } })
+        </div>
+
+        <div class="col-md-6">
+            @Html.DropDownList("Languageid", ViewBag.LanguageInputId as SelectList, "Select Language", new { @class = "form-control", name = "LanguageInputId" })
+        </div>
+    </div>
+    <div class="row" style="height:40px;">
+
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            @Html.EditorFor(model => model.Cityname, new { htmlAttributes = new { @class = "form-control", name = "Cityname", id = "Cityname", placeholder = "Enter City" } })
+        </div>
+    </div>
+
+
+    <div class="row" style="height:30px;">
+
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <span>Horizontal Design: </span> @Html.RadioButton("design", "horizontal", true)
+            <span> |       Vertical Design: </span> @Html.RadioButton("design", "vertical", false)
+        </div>
+
+    </div>
+    <div class="row" style="height:10px;">
+
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+            <button type="button" class="btn btn-primary" id="choosedesign">Choose Design</button>
+        </div>
+    </div>
+
+    <div class="row" style="height:40px;">
+
+    </div>
+
+    <div class="row">
+        <div class="col-md-5"></div>
+        <div class="col-md-2">
+            <input type="submit" value="Update Mosque data" class="btn btn-primary" />
+        </div>
+        <div class="col-md-5"></div>
+    </div>
+
+
+
+}
+
+<div class="modal fade bd-example-modal-xl" id="designclick" tabindex="-1" role="dialog" aria-labelledby="designclick" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel1">Horizontal Template</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-3">
+                        <label>
+                            <input type="radio" class="tobehidden" name="hd" value="Design1" checked>
+                            <img src="~/HorizontalDesign/Design1.jpg" height="90" width="180" alt="Option 1">
+                        </label>
+                    </div>
+                    <div class="col-md-3">
+                        <label>
+                            <input type="radio" class="tobehidden" name="hd" value="Design2">
+                            <img src="~/HorizontalDesign/Design2.jpg" height="90" width="180" alt="Option 1">
+                        </label>
+                    </div>
+                    <div class="col-md-3">
+                        <label>
+                            <input type="radio" class="tobehidden" name="hd" value="Design3">
+                            <img src="~/HorizontalDesign/Design3.jpg" height="90" width="180" alt="Option 1">
+                        </label>
+                    </div>
+                    <div class="col-md-3">
+                        <label>
+                            <input type="radio" class="tobehidden" name="hd" value="Design4">
+                            <img src="~/HorizontalDesign/Design4.jpg" height="90" width="180" alt="Option 1">
+                        </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <label>
+                            <input type="radio" class="tobehidden" name="hd" value="Design5">
+                            <img src="~/HorizontalDesign/Design5.jpg" height="90" width="180" alt="Option 1">
+                        </label>
+                    </div>
+                    <div class="col-md-3">
+                        <label>
+                            <input type="radio" class="tobehidden" name="hd" value="Design6">
+                            <img src="~/HorizontalDesign/Design6.jpg" height="90" width="180" alt="Option 1">
+                        </label>
+                    </div>
+                    <div class="col-md-3">
+                        <label>
+                            <input type="radio" class="tobehidden" name="hd" value="Design7">
+                            <img src="~/HorizontalDesign/Design7.jpg" height="90" width="180" alt="Option 1">
+                        </label>
+                    </div>
+                    <div class="col-md-3">
+                        <label>
+                            <input type="radio" class="tobehidden" name="hd" value="Design8">
+                            <img src="~/HorizontalDesign/Design8.jpg" height="90" width="180" alt="Option 1">
+                        </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <label>
+                            <input type="radio" class="tobehidden" name="hd" value="Design9">
+                            <img src="~/HorizontalDesign/Design9.jpg" height="90" width="180" alt="Option 1">
+                        </label>
+                    </div>
+                    <div class="col-md-3">
+                        <label>
+                            <input type="radio" class="tobehidden" name="hd" value="Design10">
+                            <img src="~/HorizontalDesign/Design10.jpg" height="90" width="180" alt="Option 1">
+                        </label>
+                    </div>
+                    <div class="col-md-3">
+                        <label>
+                            <input type="radio" class="tobehidden" name="hd" value="Design11">
+                            <img src="~/HorizontalDesign/Design11.jpg" height="90" width="180" alt="Option 1">
+                        </label>
+                    </div>
+                    <div class="col-md-3">
+                        <label>
+                            <input type="radio" class="tobehidden" name="hd" value="Design12">
+                            <img src="~/HorizontalDesign/Design12.jpg" height="90" width="180" alt="Option 1">
+                        </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <label>
+                            <input type="radio" class="tobehidden" name="hd" value="Design13">
+                            <img src="~/HorizontalDesign/Design13.jpg" height="90" width="180" alt="Option 1">
+                        </label>
+                    </div>
+                    <div class="col-md-3">
+                        <label>
+                            <input type="radio" class="tobehidden" name="hd" value="Design14">
+                            <img src="~/HorizontalDesign/Design14.jpg" height="90" width="180" alt="Option 1">
+                        </label>
+                    </div>
+                    <div class="col-md-3">
+                        <label>
+                            <input type="radio" class="tobehidden" name="hd" value="Design15">
+                            <img src="~/HorizontalDesign/Design15.jpg" height="90" width="180" alt="Option 1">
+                        </label>
+                    </div>
+                    <div class="col-md-3">
+                        <label>
+                            <input type="radio" class="tobehidden" name="hd" value="Design16">
+                            <img src="~/HorizontalDesign/Design16.jpg" height="90" width="180" alt="Option 1">
+                        </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <label>
+                            <input type="radio" class="tobehidden" name="hd" value="Design17">
+                            <img src="~/HorizontalDesign/Design17.jpg" height="90" width="180" alt="Option 1">
+                        </label>
+                    </div>
+                    <div class="col-md-3">
+                        <label>
+                            <input type="radio" class="tobehidden" name="hd" value="Design18">
+                            <img src="~/HorizontalDesign/Design18.jpg" height="90" width="180" alt="Option 1">
+                        </label>
+                    </div>
+                    <div class="col-md-3">
+                        <label>
+                            <input type="radio" class="tobehidden" name="hd" value="Design19">
+                            <img src="~/HorizontalDesign/Design19.jpg" height="90" width="180" alt="Option 1">
+                        </label>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="modal-footer">
+
+                <button type="button" id="btnSaveChanges" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade bd-example-modal-xl" id="designclickvertical" tabindex="-1" role="dialog" aria-labelledby="designclickvertical" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel2">Vertical template</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-3">
+                        <label>
+                            <input type="radio" class="tobehidden" name="vd" value="Design1" checked>
+                            <img src="~/VerticalDesign/Design1.jpg" height="200" width="100" alt="Option 1">
+                        </label>
+                    </div>
+                    <div class="col-md-3">
+                        <label>
+                            <input type="radio" class="tobehidden" name="vd" value="Design2">
+                            <img src="~/VerticalDesign/Design2.jpg" height="200" width="100" alt="Option 1">
+                        </label>
+                    </div>
+                    <div class="col-md-3">
+                        <label>
+                            <input type="radio" class="tobehidden" name="vd" value="Design3">
+                            <img src="~/VerticalDesign/Design3.jpg" height="200" width="100" alt="Option 1">
+                        </label>
+                    </div>
+                    <div class="col-md-3">
+                        <label>
+                            <input type="radio" class="tobehidden" name="vd" value="Design4">
+                            <img src="~/VerticalDesign/Design4.jpg" height="200" width="100" alt="Option 1">
+                        </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <label>
+                            <input type="radio" class="tobehidden" name="vd" value="Design5">
+                            <img src="~/VerticalDesign/Design5.jpg" height="200" width="100" alt="Option 1">
+                        </label>
+                    </div>
+                    <div class="col-md-3">
+                        <label>
+                            <input type="radio" class="tobehidden" name="vd" value="Design6">
+                            <img src="~/VerticalDesign/Design6.jpg" height="200" width="100" alt="Option 1">
+                        </label>
+                    </div>
+                    <div class="col-md-3">
+                        <label>
+                            <input type="radio" class="tobehidden" name="vd" value="Design7">
+                            <img src="~/VerticalDesign/Design7.jpg" height="200" width="100" alt="Option 1">
+                        </label>
+                    </div>
+                    <div class="col-md-3">
+                        <label>
+                            <input type="radio" class="tobehidden" name="vd" value="Design8">
+                            <img src="~/VerticalDesign/Design8.jpg" height="200" width="100" alt="Option 1">
+                        </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <label>
+                            <input type="radio" class="tobehidden" name="vd" value="Design9">
+                            <img src="~/VerticalDesign/Design9.jpg" height="200" width="100" alt="Option 1">
+                        </label>
+                    </div>
+                    <div class="col-md-3">
+                        <label>
+                            <input type="radio" class="tobehidden" name="vd" value="Design10">
+                            <img src="~/VerticalDesign/Design10.jpg" height="200" width="100" alt="Option 1">
+                        </label>
+                    </div>
+                    <div class="col-md-3">
+                        <label>
+                            <input type="radio" class="tobehidden" name="vd" value="Design11">
+                            <img src="~/VerticalDesign/Design11.jpg" height="200" width="100" alt="Option 1">
+                        </label>
+                    </div>
+                    <div class="col-md-3">
+                        <label>
+                            <input type="radio" class="tobehidden" name="vd" value="Design12">
+                            <img src="~/VerticalDesign/Design12.jpg" height="200" width="100" alt="Option 1">
+                        </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <label>
+                            <input type="radio" class="tobehidden" name="vd" value="Design13">
+                            <img src="~/VerticalDesign/Design13.jpg" height="200" width="100" alt="Option 1">
+                        </label>
+                    </div>
+                    <div class="col-md-3">
+                        <label>
+                            <input type="radio" class="tobehidden" name="vd" value="Design14">
+                            <img src="~/VerticalDesign/Design14.jpg" height="200" width="100" alt="Option 1">
+                        </label>
+                    </div>
+                    <div class="col-md-3">
+                        <label>
+                            <input type="radio" class="tobehidden" name="vd" value="Design15">
+                            <img src="~/VerticalDesign/Design15.jpg" height="200" width="100" alt="Option 1">
+                        </label>
+                    </div>
+                    <div class="col-md-3">
+                        <label>
+                            <input type="radio" class="tobehidden" name="vd" value="Design16">
+                            <img src="~/VerticalDesign/Design16.jpg" height="200" width="100" alt="Option 1">
+                        </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <label>
+                            <input type="radio" class="tobehidden" name="vd" value="Design17">
+                            <img src="~/VerticalDesign/Design17.jpg" height="200" width="100" alt="Option 1">
+                        </label>
+                    </div>
+                    <div class="col-md-3">
+                        <label>
+                            <input type="radio" class="tobehidden" name="vd" value="Design18">
+                            <img src="~/VerticalDesign/Design18.jpg" height="200" width="100" alt="Option 1">
+                        </label>
+                    </div>
+                    <div class="col-md-3">
+                        <label>
+                            <input type="radio" class="tobehidden" name="vd" value="Design19">
+                            <img src="~/VerticalDesign/Design19.jpg" height="200" width="100" alt="Option 1">
+                        </label>
+                    </div>
+                    <div class="col-md-3">
+                        <label>
+                            <input type="radio" class="tobehidden" name="vd" value="Design20">
+                            <img src="~/VerticalDesign/Design20.jpg" height="200" width="100" alt="Option 1">
+                        </label>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="modal-footer">
+
+                <button type="button" id="btnSaveChangesvertical" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Styles
+{
+    <style type="text/css">
+        /* HIDE RADIO */
+
+        .tobehidden {
+            position: absolute;
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        /* IMAGE STYLES */
+        [type=radio] + img {
+            cursor: pointer;
+        }
+
+        /* CHECKED STYLES */
+        [type=radio]:checked + img {
+            outline: 5px solid #f00;
+        }
+    </style>
+}
+
+
+@section scripts{
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            
+
+            $("#Cityname").autocomplete({
+                source: function (request, response) {
+                    $.ajax({
+                        url: "/Mosque/Getcities",
+                        type: "POST",
+                        dataType: "json",
+                        data: { Prefix: request.term },
+                        success: function (data) {
+                            response($.map(data, function (item) {
+                                return { label: item.City, value: item.City };
+                            }))
+
+                        }
+                    })
+                },
+                messages: {
+                    noResults: "", results: ""
+                }
+            });
+
+
+
+            $("#choosedesign").click(function () {
+                if ($('input[name="design"]:checked').val() == "horizontal") {
+                    $('#designclick').modal('show');
+                } else {
+                    $('#designclickvertical').modal('show');
+                }
+
+            });
+
+            $('#btnSaveChanges').click(function () {
+                $("#designname").val($('input[name="hd"]:checked').val());
+                $('#designclick').modal('hide');
+
+
+            });
+
+            $('#btnSaveChangesvertical').click(function () {
+
+                $("#designname").val($('input[name="vd"]:checked').val());
+                $('#designclickvertical').modal('hide');
+
+
+            });
+
+        })
+    </script>
+}
+

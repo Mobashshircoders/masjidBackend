@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="mosqueappModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Countrydata">
+    <Key>
+      <PropertyRef Name="Countrydataid" />
+    </Key>
+    <Property Name="Countrydataid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Countrycode" Type="varchar" MaxLength="50" />
+    <Property Name="Countryname" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Hadith">
+    <Key>
+      <PropertyRef Name="Hadithid" />
+    </Key>
+    <Property Name="Hadithid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Hadith" Type="nvarchar" MaxLength="4000" />
+  </EntityType>
+  <EntityType Name="LanguageInput">
+    <Key>
+      <PropertyRef Name="LanguageInputId" />
+    </Key>
+    <Property Name="LanguageInputId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Language" Type="varchar" MaxLength="1000" />
+  </EntityType>
+  <EntityType Name="Loginuser">
+    <Key>
+      <PropertyRef Name="Loginuserid" />
+    </Key>
+    <Property Name="Loginuserid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Username" Type="varchar" MaxLength="1000" />
+    <Property Name="Password" Type="varchar" MaxLength="1000" />
+    <Property Name="Email" Type="varchar" MaxLength="1000" />
+    <Property Name="MobileNo" Type="varchar" MaxLength="1000" />
+    <Property Name="IsAdmin" Type="bit" />
+    <Property Name="IsActive" Type="bit" />
+  </EntityType>
+  <EntityType Name="Masjid">
+    <Key>
+      <PropertyRef Name="Masjidid" />
+    </Key>
+    <Property Name="Masjidid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Masjidname" Type="nvarchar" MaxLength="1000" />
+    <Property Name="Designname" Type="varchar" MaxLength="1000" />
+    <Property Name="Country" Type="varchar" MaxLength="1000" />
+    <Property Name="Cityname" Type="varchar" MaxLength="1000" />
+    <Property Name="Latitude" Type="decimal" Precision="9" Scale="6" />
+    <Property Name="Longitude" Type="decimal" Precision="9" Scale="6" />
+    <Property Name="Prayertimeid" Type="int" />
+    <Property Name="Languageid" Type="int" />
+    <Property Name="Logo" Type="nvarchar" MaxLength="3000" />
+    <Property Name="IsHorizontal" Type="bit" />
+  </EntityType>
+  <EntityType Name="MosqueLink">
+    <Key>
+      <PropertyRef Name="MosqueLinkid" />
+    </Key>
+    <Property Name="MosqueLinkid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Hadithid" Type="int" />
+    <Property Name="Mosqueid" Type="int" />
+  </EntityType>
+  <EntityType Name="Prayertime">
+    <Key>
+      <PropertyRef Name="Prayertimeid" />
+    </Key>
+    <Property Name="Prayertimeid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Fajr" Type="varchar" MaxLength="1000" />
+    <Property Name="Fajrnamaaz" Type="varchar" MaxLength="1000" />
+    <Property Name="Fajrazaan" Type="varchar" MaxLength="1000" />
+    <Property Name="Shuruq" Type="varchar" MaxLength="1000" />
+    <Property Name="Dhuhr" Type="varchar" MaxLength="1000" />
+    <Property Name="Dhuhrazaan" Type="varchar" MaxLength="1000" />
+    <Property Name="Dhuhrnamaaz" Type="varchar" MaxLength="1000" />
+    <Property Name="Asr" Type="varchar" MaxLength="1000" />
+    <Property Name="Asrazaan" Type="varchar" MaxLength="1000" />
+    <Property Name="Asrnamaaz" Type="varchar" MaxLength="1000" />
+    <Property Name="Maghrib" Type="varchar" MaxLength="1000" />
+    <Property Name="Maghribazaan" Type="varchar" MaxLength="1000" />
+    <Property Name="Maghribnamaaz" Type="varchar" MaxLength="1000" />
+    <Property Name="Isha" Type="varchar" MaxLength="1000" />
+    <Property Name="Ishaazaan" Type="varchar" MaxLength="1000" />
+    <Property Name="Ishanamaaz" Type="varchar" MaxLength="1000" />
+    <Property Name="AlJumuanamaaz" Type="varchar" MaxLength="1000" />
+    <Property Name="AlJumuaazaan" Type="varchar" MaxLength="1000" />
+  </EntityType>
+  <EntityType Name="Worldcity">
+    <Key>
+      <PropertyRef Name="Worldcitylistid" />
+    </Key>
+    <Property Name="Worldcitylistid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="City" Type="varchar" MaxLength="100" />
+    <Property Name="City_ascii" Type="varchar" MaxLength="100" />
+    <Property Name="Latitute" Type="decimal" Precision="12" Scale="9" />
+    <Property Name="Longitude" Type="decimal" Precision="12" Scale="9" />
+    <Property Name="Countryname" Type="varchar" MaxLength="100" />
+    <Property Name="Countrycode" Type="varchar" MaxLength="100" />
+    <Property Name="countryiso" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <Association Name="FK_MosqueLink_Hadith">
+    <End Role="Hadith" Type="Self.Hadith" Multiplicity="1" />
+    <End Role="MosqueLink" Type="Self.MosqueLink" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Hadith">
+        <PropertyRef Name="Hadithid" />
+      </Principal>
+      <Dependent Role="MosqueLink">
+        <PropertyRef Name="MosqueLinkid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MosqueLink_Masjid">
+    <End Role="Masjid" Type="Self.Masjid" Multiplicity="1" />
+    <End Role="MosqueLink" Type="Self.MosqueLink" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Masjid">
+        <PropertyRef Name="Masjidid" />
+      </Principal>
+      <Dependent Role="MosqueLink">
+        <PropertyRef Name="MosqueLinkid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="mosqueappModelStoreContainer">
+    <EntitySet Name="Countrydata" EntityType="Self.Countrydata" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Hadith" EntityType="Self.Hadith" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LanguageInput" EntityType="Self.LanguageInput" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Loginuser" EntityType="Self.Loginuser" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Masjid" EntityType="Self.Masjid" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MosqueLink" EntityType="Self.MosqueLink" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Prayertime" EntityType="Self.Prayertime" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Worldcity" EntityType="Self.Worldcity" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_MosqueLink_Hadith" Association="Self.FK_MosqueLink_Hadith">
+      <End Role="Hadith" EntitySet="Hadith" />
+      <End Role="MosqueLink" EntitySet="MosqueLink" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MosqueLink_Masjid" Association="Self.FK_MosqueLink_Masjid">
+      <End Role="Masjid" EntitySet="Masjid" />
+      <End Role="MosqueLink" EntitySet="MosqueLink" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

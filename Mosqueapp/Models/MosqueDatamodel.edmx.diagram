@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="9ac40bef0161457d959ef6bbd2827e7b" Name="Diagram1">
+        <EntityTypeShape EntityType="mosqueappModel.Hadith" Width="1.5" PointX="3" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="mosqueappModel.Loginuser" Width="1.5" PointX="5.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="mosqueappModel.MosqueLink" Width="1.5" PointX="5.25" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="mosqueappModel.Prayertime" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="mosqueappModel.FK_MosqueLink_Hadith" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="mosqueappModel.Countrydata" Width="1.5" PointX="0.75" PointY="8.75" />
+        <EntityTypeShape EntityType="mosqueappModel.Worldcity" Width="1.5" PointX="2.75" PointY="8.75" />
+        <EntityTypeShape EntityType="mosqueappModel.LanguageInput" Width="1.5" PointX="5.375" PointY="8.75" />
+        <EntityTypeShape EntityType="mosqueappModel.Masjid" Width="1.5" PointX="3" PointY="1" />
+        <AssociationConnector Association="mosqueappModel.FK_MosqueLink_Masjid" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="mosqueappModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Hadith">
+    <Key>
+      <PropertyRef Name="Hadithid" />
+    </Key>
+    <Property Name="Hadithid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Hadith1" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="MosqueLink" Relationship="Self.FK_MosqueLink_Hadith" FromRole="Hadith" ToRole="MosqueLink" />
+  </EntityType>
+  <EntityType Name="Loginuser">
+    <Key>
+      <PropertyRef Name="Loginuserid" />
+    </Key>
+    <Property Name="Loginuserid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Username" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="MobileNo" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="IsAdmin" Type="Boolean" />
+    <Property Name="IsActive" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="MosqueLink">
+    <Key>
+      <PropertyRef Name="MosqueLinkid" />
+    </Key>
+    <Property Name="MosqueLinkid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Hadithid" Type="Int32" />
+    <Property Name="Mosqueid" Type="Int32" />
+    <NavigationProperty Name="Hadith" Relationship="Self.FK_MosqueLink_Hadith" FromRole="MosqueLink" ToRole="Hadith" />
+    <NavigationProperty Name="Masjid" Relationship="mosqueappModel.FK_MosqueLink_Masjid" FromRole="MosqueLink" ToRole="Masjid" />
+  </EntityType>
+  <EntityType Name="Prayertime">
+    <Key>
+      <PropertyRef Name="Prayertimeid" />
+    </Key>
+    <Property Name="Prayertimeid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Fajr" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="Fajrnamaaz" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="Fajrazaan" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="Shuruq" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="Dhuhr" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="Dhuhrazaan" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="Dhuhrnamaaz" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="Asr" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="Asrazaan" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="Asrnamaaz" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="Maghrib" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="Maghribazaan" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="Maghribnamaaz" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="Isha" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="Ishaazaan" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="Ishanamaaz" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="AlJumuanamaaz" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="AlJumuaazaan" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <Association Name="FK_MosqueLink_Hadith">
+    <End Role="Hadith" Type="Self.Hadith" Multiplicity="1" />
+    <End Role="MosqueLink" Type="Self.MosqueLink" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Hadith">
+        <PropertyRef Name="Hadithid" />
+      </Principal>
+      <Dependent Role="MosqueLink">
+        <PropertyRef Name="MosqueLinkid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="mosqueappEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Hadiths" EntityType="Self.Hadith" />
+    <EntitySet Name="Loginusers" EntityType="Self.Loginuser" />
+    <EntitySet Name="MosqueLinks" EntityType="Self.MosqueLink" />
+    <EntitySet Name="Prayertimes" EntityType="Self.Prayertime" />
+    <AssociationSet Name="FK_MosqueLink_Hadith" Association="Self.FK_MosqueLink_Hadith">
+      <End Role="Hadith" EntitySet="Hadiths" />
+      <End Role="MosqueLink" EntitySet="MosqueLinks" />
+    </AssociationSet>
+    <EntitySet Name="Countrydatas" EntityType="mosqueappModel.Countrydata" />
+    <EntitySet Name="Worldcities" EntityType="mosqueappModel.Worldcity" />
+    <EntitySet Name="LanguageInputs" EntityType="mosqueappModel.LanguageInput" />
+    <EntitySet Name="Masjids" EntityType="mosqueappModel.Masjid" />
+    <AssociationSet Name="FK_MosqueLink_Masjid" Association="mosqueappModel.FK_MosqueLink_Masjid">
+      <End Role="Masjid" EntitySet="Masjids" />
+      <End Role="MosqueLink" EntitySet="MosqueLinks" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Countrydata">
+    <Key>
+      <PropertyRef Name="Countrydataid" />
+    </Key>
+    <Property Name="Countrydataid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Countrycode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Countryname" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Worldcity">
+    <Key>
+      <PropertyRef Name="Worldcitylistid" />
+    </Key>
+    <Property Name="Worldcitylistid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="City" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="City_ascii" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Latitute" Type="Decimal" Precision="12" Scale="9" />
+    <Property Name="Longitude" Type="Decimal" Precision="12" Scale="9" />
+    <Property Name="Countryname" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Countrycode" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="countryiso" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="LanguageInput">
+    <Key>
+      <PropertyRef Name="LanguageInputId" />
+    </Key>
+    <Property Name="LanguageInputId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Language" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Masjid">
+    <Key>
+      <PropertyRef Name="Masjidid" />
+    </Key>
+    <Property Name="Masjidid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Masjidname" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="Designname" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="Country" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="Cityname" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="Latitude" Type="Decimal" Precision="9" Scale="6" />
+    <Property Name="Longitude" Type="Decimal" Precision="9" Scale="6" />
+    <Property Name="Prayertimeid" Type="Int32" />
+    <Property Name="Languageid" Type="Int32" />
+    <Property Name="Logo" Type="String" MaxLength="3000" FixedLength="false" Unicode="true" />
+    <Property Name="IsHorizontal" Type="Boolean" />
+    <NavigationProperty Name="MosqueLink" Relationship="mosqueappModel.FK_MosqueLink_Masjid" FromRole="Masjid" ToRole="MosqueLink" />
+  </EntityType>
+  <Association Name="FK_MosqueLink_Masjid">
+    <End Type="mosqueappModel.Masjid" Role="Masjid" Multiplicity="1" />
+    <End Type="mosqueappModel.MosqueLink" Role="MosqueLink" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Masjid">
+        <PropertyRef Name="Masjidid" />
+      </Principal>
+      <Dependent Role="MosqueLink">
+        <PropertyRef Name="MosqueLinkid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
